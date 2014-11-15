@@ -25,5 +25,6 @@ $.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + param
 	document.getElementById('orgName').innerHTML = data.name;
 	document.getElementById('orgDesc').innerHTML = data.description;
  	document.getElementById('orgContactInfo').innerHTML = orgContactInfo;
+ 	document.getElementById('pubKey').innerHTML = data.public_key;
 	console.log(data)
 });
