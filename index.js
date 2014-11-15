@@ -61,7 +61,9 @@ app.post('/organization/notifications', function(request, response) {
 	if(indexOfInput > -1)
 		paidToAddress.splice(indexOfInput, 1);
 
-	memorydb.addExpense(linq.id, paidToAddress[0], (sent-received));
+	var k = new LINQ(getExpenses()).First(function(x){return x.id == request.body.id;});
+	if(k == undefined)
+		memorydb.addExpense(linq.id, paidToAddress[0], (sent-received), request.body.id);
 	response.send("Thank you");
 });
 
