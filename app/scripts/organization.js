@@ -8,5 +8,7 @@ $.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/1", funct
   //   "class": "my-new-list",
   //   html: items.join( "" )
   // }).appendTo( "body" );
-	console.log(data);
+	document.getElementById('orgName').innerHTML = data.name;
+ 
+	console.log(data)
 });
