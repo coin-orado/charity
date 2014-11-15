@@ -26,7 +26,7 @@ if (window.location.search == "?error"){
 			document.getElementById('pubKey').innerHTML = data.public_key;
 			document.getElementById('stats').innerHTML = stats;
 			document.getElementById('qr').innerHTML = "<img src='" + data.qr_code + "' alt='QR Code' style='width:150px;height:150px;'>";
-			document.getElementById('expensesPage').innerHTML = 'See Expenses: ' + "<a class='btn btn-default' href='https://intense-escarpment-3682.herokuapp.com/expenses.html?id=" + data.id + "'> " + data.name + "</a>"
+			document.getElementById('expensesPage').innerHTML = "<a class='btn btn-default' href='https://intense-escarpment-3682.herokuapp.com/expenses.html?id=" + data.id + "'> " + "See Expenses" + "</a>"
 
 			console.log(data)
 			// Set bckgd img
