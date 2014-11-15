@@ -1,11 +1,12 @@
 $.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/1", function( data ) {
-  var items = [];
-  $.each( data, function( key, val ) {
-    items.push( "<li id='" + key + "'>" + val + "</li>" );
-  });
+  // var items = [];
+  // $.each( data, function( key, val ) {
+  //   items.push( "<li id='" + key + "'>" + val + "</li>" );
+  // });
  
-  $( "<ul/>", {
-    "class": "my-new-list",
-    html: items.join( "" )
-  }).appendTo( "body" );
+  // $( "<ul/>", {
+  //   "class": "my-new-list",
+  //   html: items.join( "" )
+  // }).appendTo( "body" );
+	console.log(data);
 });
