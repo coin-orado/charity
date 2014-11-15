@@ -2,6 +2,7 @@ exports.generateKeys = generateKeys
 exports.getAddressInfo = getAddressInfo
 exports.subscribe = subscribe
 exports.sendTransaction = sendTransaction
+exports.subscribeForOrganizationNotifications = subscribeForOrganizationNotifications
 
 var fs = require('fs');
 var chain = require('chain-node');
@@ -26,6 +27,12 @@ function getAddressInfo(address, callback) {
 function subscribe(publicAddress) {
 
 	chain.createNotification({type: "address", block_chain: configObject["chain"].useTestnet ? "testnet3" : "bitcoin" , address: publicAddress, url: "https://bit-charity.herokuapp.com/notifications"}, function(err, resp) {});
+
+}
+
+function subscribeForOrganizationNotifications(publicAddress) {
+
+	chain.createNotification({type: "address", block_chain: configObject["chain"].useTestnet ? "testnet3" : "bitcoin" , address: publicAddress, url: "https://bit-charity.herokuapp.com/organization/notifications"}, function(err, resp) {});
 
 }
 
