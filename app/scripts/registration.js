@@ -31,7 +31,7 @@ function createOrg(){
 		type: "POST",
 		url: 'https://intense-escarpment-3682.herokuapp.com/organization',
 		data: JSONObj,
-		dataType: "application/json"
+		dataType: "json"
 	});
 
 	alert('organization created');
