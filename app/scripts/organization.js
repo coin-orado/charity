@@ -1,6 +1,8 @@
-function getQueryParams(qs) {
+function getQueryParams(search) {
+	if (search == "")
+		return 0;
 	var params = {};
-	var tmp = qs.split('?')[1].split('=');
+	var tmp = search.split('?')[1].split('=');
 	var key = tmp[0];
 	var val = tmp[1];
 	params[key] = val;
