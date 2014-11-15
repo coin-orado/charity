@@ -11,12 +11,10 @@ function getQueryParams(search) {
 
 
 params = getQueryParams(window.location.search);
-
-if (params['error'] == true){
+console.log(params)
+if (window.location.search == ?error){
 	$('#error').html("Organization not found");
-}
-
-else{
+}else{
 	$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + params.id, function(data) {
 		console.log("successful ajax post");
 			var orgContactInfo = "Address: " + data.contact_info.address + "<br>" + "Phone: " + data.contact_info.phone + "<br>" + "Website: " + data.contact_info.website;
@@ -33,7 +31,7 @@ else{
 			alert("success")
 		}).fail(function() { 
 			console.log("error in ajax post");
-			window.location.search = "error=true"
+			window.location.search = "error"
 	});
 }
 		
