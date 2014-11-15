@@ -5,5 +5,5 @@
 		"useTestnet":true,
 		"transactionFee":10000
 	},
-	"webserver":"https://intense-escarpment-3682.herokuapp.com/"
+	"webserver":"https://intense-escarpment-3682.herokuapp.com"
 }
