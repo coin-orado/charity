@@ -58,8 +58,7 @@ app.post('/notifications', function(request, response) {
 
 app.get("/organization/:id", function (request, response)
 {
-	// TODO: USE ID !!!
-	var object = memorydb.getOrganizations()[0];
+	var object = memorydb.getOrganization(request.param("id"));
 	delete object.wallet
 
 	response.send(object)
