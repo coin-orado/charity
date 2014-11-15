@@ -3,15 +3,11 @@ $( '#submit' ).click(function() {
 	createOrg();
 });
 
-function clearForm(){
-	var name = document.getElementById('name').innerHTML = "";
-	var description = document.getElementById('description').innerHTML = "";
-	var website = document.getElementById('website').innerHTML = "";
-	var phone = document.getElementById('phone').innerHTML = "";
-	var address = document.getElementById('address').innerHTML = "";
-	var public_key = document.getElementById('public_key').innerHTML = "";
-	var id = document.getElementById('id').innerHTML = "";
+// if form submission successful, display some sort of message
+if (location.search == "?success"){
+	$('#success').html("Registration Successful");
 }
+
 
 function createOrg(){
 	var name = document.getElementById('name').value;
@@ -48,7 +44,8 @@ function createOrg(){
 	})
 	.success(function() {
 		console.log("successful ajax post");
-		clearForm();
+		location.search='success';
+		
 	})
 
 	//alert('organization created');
