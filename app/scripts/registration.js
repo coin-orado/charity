@@ -13,6 +13,7 @@ function createOrg(){
 	var phone = document.getElementById('phone').value;
 	var address = document.getElementById('address').value;
 	var public_key = document.getElementById('public_key').value;
+	var id = document.getElementById('id').value;
 
 	var JSONObj = {};
 	var contact_info = {};
@@ -25,7 +26,8 @@ function createOrg(){
 	JSONObj.description = description;
 	JSONObj.contact_info = contact_info;
 	JSONObj.public_key = public_key;
-
+	JSONObj.id = id;
+	
 	console.log(JSON.stringify(JSONObj))
 	$.ajax({
 		type: "POST",
