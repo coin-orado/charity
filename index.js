@@ -21,8 +21,13 @@ function StartServer() {
 
 StartServer()
 
-app.get("/wallet", function(request, response){
+app.get("/wallet", function(request, response) {
 	response.send(bitcoin.generateKeys());
+})
+
+app.post('/notifications', function(request, response) {
+	console.log(request.body);
+	response.send("OK !");
 })
 
 app.get("/organization/:id", function (request, response) 
