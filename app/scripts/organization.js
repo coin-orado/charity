@@ -29,9 +29,9 @@ if (window.location.search == "?error"){
 			console.log(data)
 			// Set bckgd img
 			console.log(data.background);
-			var t = $('#jumbotron');
+			var t = $('#.jumbotron');
 			debugger
-			//.css("{'background-image':", "'url(" + data.background + ")'}");
+			t.css('background-image','url("' + data.background '");');
 			
 		}).done(function(){
 			console.log("ajax successful");
