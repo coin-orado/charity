@@ -18,7 +18,7 @@ if (window.location.search == "?error"){
 	$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + params.id, function(data) {
 		console.log("successful ajax post");
 			var orgContactInfo = "Address: " + data.contact_info.address + "<br>" + "Phone: " + data.contact_info.phone + "<br>" + "Website: " + data.contact_info.website;
-			var stats = "Maximum Gift: " + data.payment_status.max + "<br>" + "Total Contribution: " + data.payment_status.total + "<br>" + "Number of Contributions: " + data.payment_status.count;
+			var stats = "Maximum Gift: " + data.payment_status.max + " Satoshi<br>" + "Total Contribution: " + data.payment_status.total + " Satoshi<br>" + "Number of Contributions: " + data.payment_status.count;
 				
 			document.getElementById('orgName').innerHTML = data.name;
 			document.getElementById('orgDesc').innerHTML = data.description;
@@ -26,7 +26,7 @@ if (window.location.search == "?error"){
 			document.getElementById('pubKey').innerHTML = data.public_key;
 			document.getElementById('stats').innerHTML = stats;
 			document.getElementById('qr').innerHTML = "<img src='" + data.qr_code + "' alt='QR Code' style='width:150px;height:150px;'>";
-			document.getElementById('expensesPage').innerHTML = 'See Expenses: ' + "<a class='btn btn-default' href='https://intense-escarpment-3682.herokuapp.com/expenses.html?id=" + data.id + "'> " + data.name + "</a>"
+			document.getElementById('expensesPage').innerHTML = "<a class='btn btn-default' href='https://intense-escarpment-3682.herokuapp.com/expenses.html?id=" + data.id + "'> " + "See Expenses" + "</a>"
 
 			console.log(data)
 			// Set bckgd img
