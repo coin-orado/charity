@@ -32,6 +32,49 @@ app.get("/wallet", function(request, response) {
 
 })
 
+// Receive notifications for organization wallet
+app.post('/organization/notifications', function(request, response) {
+
+	var address = request.body.payload.address;
+	var received = request.body.payload.received;
+	var sent = request.body.payload.sent;
+
+	if(sent <= received){
+		response.send("thanks");
+		return;
+	}
+
+	var organizations = memorydb.getOrganizations();
+
+	var linq = new LINQ(organizations).Single(function(x){return x.public_key==address});
+
+	if(linq == undefined) {
+		response.send("Thanks but I don't need it.")
+		return;
+	}
+
+	var paidToAddress = request.body.payload.output_addresses;
+	var indexOfInput = paidToAddress.indexOf(address);
+
+	if(indexOfInput > -1)
+		paidToAddress.splice(indexOfInput, 1);
+
+	memorydb.addExpense(linq.id, paidToAddress[0], (sent-received));
+
+});
+
+app.get('/expenses/:id', function(request,response) {
+
+	var expenses = memorydb.getExpenses();
+
+	var linq = new LINQ(expenses).Where( function (x) {
+		return x.id == request.param("id");
+	});
+
+	response.send(linq);
+
+});
+
 app.post('/notifications', function(request, response) {
 	
 	var address = request.body.payload.address;
@@ -62,7 +105,7 @@ app.post('/notifications', function(request, response) {
 
 	bitcoin.sendTransaction(linq.wallet.private_key, linq.wallet.public_key, linq.public_key, donated, function(){});
 
-})
+});
 
 app.get("/organization/:id", function (request, response)
 {

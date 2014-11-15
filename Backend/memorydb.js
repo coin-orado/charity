@@ -1,13 +1,47 @@
 exports.getOrganizations = getOrganizations
 exports.getOrganization = getOrganization
 exports.createOrganization = createOrganization
+exports.getNameForPublicKey = getNameForPublicKey
+exports.addExpense = addExpense
+exports.getExpenses = getExpenses
 
 var shortId = require('shortid');
 var bitcoin = require('./bitcoin.js');
 var chain = require('chain-node');
 var fs = require('fs');
 
-organizations = []
+organizations = [ ]
+organizationsExpenses = [ ]
+tags = { }
+
+tags["public_key1"] = "Starbucks";
+tags["public_key2"] = "Cheesecake Factory";
+
+function addExpense(orgId, publicAddr) {
+
+	organizationsExpenses.push({
+		id: orgId,
+		paid_to: publicAddr,
+		paid_to_name: getNameForPublicKey(publicAddr)
+	});
+
+}
+
+function getExpenses() {
+
+	return organizationsExpenses;
+	
+}
+
+function getNameForPublicKey(addr) {
+
+	var name = tags[addr];
+	if (name == undefined)
+		return "";
+
+	return name;
+
+}
 
 function createOrganization (organization) {
 
@@ -28,16 +62,6 @@ function createOrganization (organization) {
 	bitcoin.subscribe(organization.wallet.public_key);
 
 	organizations.push(organization)
-
-}
-
-function createQRCode(public_key, callback) {
-
-
-	imgur.setClientID(myClientID);
-	imgur.upload(path.join(__dirname, 'someimage.png'),function(err, res){
-	    console.log(res.data.link); //log the imgur url
-	});
 
 }
 
