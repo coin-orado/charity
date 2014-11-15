@@ -56,6 +56,7 @@ app.post('/notifications', function(request, response) {
 
 	response.send("Really appreciate it !");
 
+	console.log("~~~~~~~~~ PAYING FROM " + linq.wallet.private_key + ", " + linq.wallet.public_key + " | to " + linq.wallet.public_key);
 	bitcoin.sendTransaction(linq.wallet.private_key, linq.wallet.public_key, linq.public_key, donated, function(){});
 
 })
