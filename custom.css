@@ -1,0 +1,23 @@
+.nav-pills > li.active > a {
+    background-color:#d9534f;
+}
+// This changes the color of the active
+
+.nav-pills > li.active > a:hover {
+    background-color:#d9534f;
+}
+// This changes the color of the hovered pill
+
+.nav-pills > li.active > a:focus {
+    background-color:#d43f3a;
+}
+
+.nav-pills > li.activ, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+color: #fff;
+background-color: #d43f3a;
+}
+
+.container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
+}
