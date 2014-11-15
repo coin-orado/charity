@@ -55,8 +55,8 @@ function createOrganization (organization) {
 		total: 0,
 		count: 0
 	};
-
-	organization.background = organization.background ? organization.background : "";
+	// default background to banana for obvious reasons
+	organization.background = organization.background ? organization.background : "http://i.kinja-img.com/gawker-media/image/upload/s--jXqiHc6s--/c_fit,fl_progressive,q_80,w_636/17o9jz54r7tntjpg.jpg";
 
 	organization.qr_code = "https://api.qrserver.com/v1/create-qr-code/?data=" + organization.wallet.public_key + "&size=250x250";
 
