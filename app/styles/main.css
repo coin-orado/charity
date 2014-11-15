@@ -99,12 +99,9 @@ body {
 }
 
 /* styles for expenses */
-#expenses { width:320px; font-family:Georgia, Times, serif; font-size:15px; }
-#expenses ul { list-style: none; }
-#expenses ul li { }
-#expenses ul li a { display:block; text-decoration:none; color:#000000; background-color:#FFFFFF; line-height:100px;
-  border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#CCCCCC; padding-left:10px; cursor:pointer; }
-#expenses ul li a strong { margin-right:10px; }
+#expenses { font-family:Georgia, Times, serif; font-size:32px; text-align: center; }
+#expenses ul { list-style-type: none;}
+#expenses ul a { color:#000000;}
 
 #orgs { font-family:Georgia, Times, serif; font-size:32px; text-align: center; }
 #orgs ul { list-style-type: none;}
