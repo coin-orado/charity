@@ -62,7 +62,7 @@ app.post('/organization/notifications', function(request, response) {
 		paidToAddress.splice(indexOfInput, 1);
 
 	memorydb.addExpense(linq.id, paidToAddress[0], (sent-received));
-
+	response.send("Thank you");
 });
 
 app.get('/expenses/:id', function(request,response) {
