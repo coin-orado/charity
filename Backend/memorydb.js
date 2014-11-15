@@ -21,14 +21,13 @@ var tags_names = ['Starbucks', 'Office Depot', 'IRS', 'Strip Club','Monkey Farm'
 
 var counter = 0;
 
-function addExpense(orgId, publicAddr, _amount, _id) {
+function addExpense(orgId, publicAddr, _amount) {
 
 	organizationsExpenses.push({
 		id: orgId,
 		paid_to: publicAddr,
 		paid_to_name: getNameForPublicKey(publicAddr),
-		amount: _amount,
-		id: _id
+		amount: _amount
 	});
 
 }
