@@ -12,7 +12,7 @@ function getQueryParams(search) {
 
 params = getQueryParams(window.location.search);
 console.log(params)
-if (window.location.search == ?error){
+if (window.location.search == "?error"){
 	$('#error').html("Organization not found");
 }else{
 	$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + params.id, function(data) {
