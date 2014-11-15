@@ -68,7 +68,7 @@ app.get("/organization/:id", function (request, response)
 	response.send(object)
 });
 
-app.get("/organization", function(request, response){
+app.get("/organization", function(request, response) {
 
 	var linq = new LINQ(memorydb.getOrganizations()).Select(function(x){ delete x.wallet; return x;  }).ToArray();
 	response.send(linq);
@@ -78,5 +78,6 @@ app.post("/organization", function (request, response) {
 
 	var object = request.body;
 	memorydb.createOrganization(object);
+	delete object.wallet
 	response.send(object);
 });
