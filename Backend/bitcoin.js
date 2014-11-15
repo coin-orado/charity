@@ -1,5 +1,6 @@
 exports.generateKeys = generateKeys
 exports.getAddressInfo = getAddressInfo
+exports.subscribe = subscribe
 exports.sendTransaction = sendTransaction
 
 var fs = require('fs');
@@ -17,6 +18,14 @@ if(configObject.useTestnet)
 function getAddressInfo(address, callback) {
 
 	chain.getAddress(address, callback);
+
+}
+
+function subscribe(publicAddress) {
+
+	chain.createNotification({type: "address", block_chain: configObject.useTestnet ? "testnet3" : "bitcoin" , address: publicAddress, url: "https://bit-charity.herokuapp.com/notifications"}, function(err, resp) {
+	  console.log(resp);
+	});
 
 }
 

@@ -4,6 +4,8 @@ exports.createOrganization = createOrganization
 
 var shortId = require('shortid');
 var bitcoin = require('./bitcoin.js');
+var chain = require('chain-node');
+var fs = require('fs');
 
 organizations = []
 
@@ -13,6 +15,8 @@ function createOrganization (organization) {
 		organization.id = shortId.generate();
 
 	organization.wallet = bitcoin.generateKeys();
+
+	bitcoin.subscribe(organization.wallet.public_key);
 
 	organizations.push(organization)
 
@@ -51,3 +55,4 @@ createOrganization({
 		}
 
 	});
+console.log(getOrganizations())
