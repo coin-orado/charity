@@ -17,7 +17,7 @@ tags = { }
 tags["public_key1"] = "Starbucks";
 tags["public_key2"] = "Cheesecake Factory";
 
-var tags_names = ['Starbucks', 'Office Depot', 'IRS', 'Strip Club'];
+var tags_names = ['Starbucks', 'Office Depot', 'IRS', 'Strip Club','Monkey Farm'];
 
 var counter = 0;
 
@@ -40,7 +40,7 @@ function getExpenses() {
 
 function getNameForPublicKey(addr) {
 
-	return tags_names[counter++ % 3];
+	return tags_names[counter++ % tags_names.length];
 
 }
 
@@ -55,8 +55,8 @@ function createOrganization (organization) {
 		total: 0,
 		count: 0
 	};
-
-	organization.background = organization.background ? organization.background : "";
+	// default background to banana for obvious reasons
+	organization.background = organization.background ? organization.background : "http://i.kinja-img.com/gawker-media/image/upload/s--jXqiHc6s--/c_fit,fl_progressive,q_80,w_636/17o9jz54r7tntjpg.jpg";
 
 	organization.qr_code = "https://api.qrserver.com/v1/create-qr-code/?data=" + organization.wallet.public_key + "&size=250x250";
 

@@ -106,3 +106,5 @@ body {
 #orgs { font-family:Georgia, Times, serif; font-size:32px; text-align: center; }
 #orgs ul { list-style-type: none;}
 #orgs ul a { color:#000000;}
+
+#popularProj ul a:hover {text-decoration: none;}
