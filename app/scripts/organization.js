@@ -1,3 +1,5 @@
+Parse.initialize("T9nAcm45lrssyeWDzNWJKJCkSycFuc0viPWUpzyt", "GuiDefuQksRdskDn7yHVRdkVvdbpkBBdexRb2ov2");
+
 function getQueryParams(search) {
 	if (search == "")
 		return 0;

@@ -1,7 +1,7 @@
 Parse.initialize("T9nAcm45lrssyeWDzNWJKJCkSycFuc0viPWUpzyt", "GuiDefuQksRdskDn7yHVRdkVvdbpkBBdexRb2ov2");
 
 $( '#submit' ).click(function() {
-	alert("function called");
+	console.log("submitted form")
 	createOrg();
 });
 
@@ -26,9 +26,19 @@ function createOrg(){
 	JSONObj.contact_info = contact_info;
 	JSONObj.public_key = public_key;
 
-	var TestObject = Parse.Object.extend("TestObject");
-	var testObject = new TestObject();
-	testObject.save(JSONObj).then(function(object) {
-		console.log('succesfully pushed obj to parse');
-	})
+
+	$.ajax({
+		type: "POST",
+		url: 'https://bit-charity.herokuapp.com/organization',
+		data: JSONObj,
+		dataType: "application/json"
+	});
+
+	alert('organization created');
+
+	// var TestObject = Parse.Object.extend("TestObject");
+	// var testObject = new TestObject();
+	// testObject.save(JSONObj).then(function(object) {
+	// 	console.log('succesfully pushed obj to parse');
+	// })
 }
