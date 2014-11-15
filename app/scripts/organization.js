@@ -28,6 +28,7 @@ if (window.location.search == "?error"){
 			document.getElementById('qr').innerHTML = "<img src='" + data.qr_code + "' alt='QR Code' style='width:150px;height:150px;'>";
 			console.log(data)
 			// Set bckgd img
+			console.log(data.background);
 			$('#jumbotron').css("{'background-image':", "'url(" + data.background + ")'}");
 			
 		}).done(function(){
