@@ -94,6 +94,7 @@ createOrganization({
 			address: "3685 Moorhead Ave. Bouder, CO 80305"
 		},
 		public_key: "mpRm4M8JRH6cukTDVueKEcE5bR2WyqvKNS",
+		background: "http://i.kinja-img.com/gawker-media/image/upload/s--jXqiHc6s--/c_fit,fl_progressive,q_80,w_636/17o9jz54r7tntjpg.jpg",
 		payment_status: {
 			max: 5,
 			total: 90,
