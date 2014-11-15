@@ -1,4 +1,4 @@
-$.getJSON( "https://intense-escarpment-3682.herokuapp.com/1", function( data ) {
+$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/1", function( data ) {
   var items = [];
   $.each( data, function( key, val ) {
     items.push( "<li id='" + key + "'>" + val + "</li>" );
