@@ -17,13 +17,7 @@ if (params['error'] == true){
 }
 
 $.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + params.id, function(data) {
-	
-	.fail(function() { 
-		console.log("error in ajax post");
-		window.location.search = "error=true"
-	})
-	.success(function() {
-		console.log("successful ajax post");
+	console.log("successful ajax post");
 		var orgContactInfo = "Address: " + data.contact_info.address + "<br>" + "Phone: " + data.contact_info.phone + "<br>" + "Website: " + data.contact_info.website;
 		var stats = "Maximum Gift: " + data.payment_status.max + "<br>" + "Total Contribution: " + data.payment_status.total + "<br>" + "Number of Contributions: " + data.payment_status.count;
 			
@@ -34,5 +28,10 @@ $.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + param
 		document.getElementById('stats').innerHTML = stats;
 		console.log(data)
 		
-	})
+	}).done(function(){
+		alert("success")
+	}).fail(function() { 
+		console.log("error in ajax post");
+		window.location.search = "error=true"
 });
+		
