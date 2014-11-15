@@ -5,6 +5,9 @@ $( '#submit' ).click(function() {
 	createOrg();
 });
 
+function clearForm(){
+	$( "name" ).empty();
+}
 
 function createOrg(){
 	var name = document.getElementById('name').value;
@@ -35,7 +38,14 @@ function createOrg(){
 		url: 'https://intense-escarpment-3682.herokuapp.com/organization',
 		data: JSON.stringify(JSONObj),
 		dataType: "json"
-	});
+	})
+	.fail(function() { 
+		console.log("error in ajax post");
+	})
+	.success(function() {
+		console.log("successful ajax post");
+		clearForm();
+	})
 
 	//alert('organization created');
 
