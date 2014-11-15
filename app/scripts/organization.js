@@ -10,7 +10,7 @@ function getQueryParams(search) {
 }
 
 params = getQueryParams(window.location.search);
-$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + params.id, function(err, data) {
+$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + params.id, function(data,err) {
 	if (err)
 		throw err
 	var orgContactInfo = "Address: " + data.contact_info.address + "<br>" + "Phone: " + data.contact_info.phone + "<br>" + "Website: " + data.contact_info.website;
