@@ -30,7 +30,12 @@ app.get("/organization/:id", function (request, response)
 			phone: "+1 (571) 263 - 4240",
 			address: "3685 Moorhead Ave. Bouder, CO 80305"
 		},
-		public_key: "blahblahblahfornow :)"
+		public_key: "blahblahblahfornow :)",
+		payment_status: {
+			max: 5,
+			total: 90,
+			count: 4
+		}
 	}
 
 	response.send(dummyOrganizationObject)
