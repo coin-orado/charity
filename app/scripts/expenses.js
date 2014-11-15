@@ -18,6 +18,7 @@ if (window.location.search == "?error"){
 	$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + params.id, function(data) {
 		console.log("successful ajax post");
 			document.getElementById('orgName').innerHTML = data.name;
+			$(".jumbotron").css('background-image','url(' + data.background + ')');
 		}).done(function(){
 			console.log("ajax successful");
 		}).fail(function() { 
