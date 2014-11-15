@@ -3,7 +3,10 @@
   "main":"index.js",
   "devDependencies": {
     "express": "*",
-    "body-parser": "*"
+    "body-parser": "*",
+    "chain-node": "*",
+    "bitcoinjs-lib": "*",
+    "shortid": "*"
   },
   "engines": {
     "node": ">=0.10.0"
