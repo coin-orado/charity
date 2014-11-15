@@ -1,3 +1,10 @@
+
+$( '#submit' ).click(function() {
+	alert("function called");
+	createOrg();
+});
+
+
 function createOrg(){
 	var name = document.getElementById('name');
 	var description = document.getElementById('description');
