@@ -15,18 +15,27 @@ console.log(params)
 if (window.location.search == "?error"){
 	$('#error').html("Organization not found");
 }else{
+	$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + params.id, function(data) {
+		console.log("successful ajax post");
+			document.getElementById('orgName').innerHTML = data.name;
+		}).done(function(){
+			console.log("ajax successful");
+		}).fail(function() { 
+			console.log("error in ajax post");
+			window.location.search = "error"
+	});
+
 	$.getJSON( "https://intense-escarpment-3682.herokuapp.com/expenses/" + params.id, function(data) {
 		console.log("successful ajax post");
-			var orgContactInfo = "Address: " + data.contact_info.address + "<br>" + "Phone: " + data.contact_info.phone + "<br>" + "Website: " + data.contact_info.website;
-			var stats = "Maximum Gift: " + data.payment_status.max + "<br>" + "Total Contribution: " + data.payment_status.total + "<br>" + "Number of Contributions: " + data.payment_status.count;
-				
-			document.getElementById('orgName').innerHTML = data.name;
-			document.getElementById('orgDesc').innerHTML = data.description;
-			document.getElementById('orgContactInfo').innerHTML = orgContactInfo;
-			document.getElementById('pubKey').innerHTML = data.public_key;
-			document.getElementById('stats').innerHTML = stats;
-			document.getElementById('qr').innerHTML = "<img src='" + data.qr_code + "' alt='QR Code' style='width:150px;height:150px;'>";
-			console.log(data)
+			var items = data.items;
+			$('#expenses').append("<ul id='list'></ul>");
+    		for (cnt = 0; cnt < data.length; cnt++) {
+    	 		var expense = "<li>Id: "+ items[cnt].id + " paid public address: " + items[cnt].publicAddr + " tagged as: " + items[cnt].paid_to_name + "</li>";
+          		$("#list").append(link);
+    		}
+    		id: orgId,
+		paid_to: publicAddr,
+		paid_to_name: getNameForPublicKey(publicAddr)
 			
 		}).done(function(){
 			console.log("ajax successful");
