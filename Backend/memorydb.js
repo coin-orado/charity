@@ -21,6 +21,8 @@ function createOrganization (organization) {
 		count: 0
 	};
 
+	organization.background = "";
+
 	organization.qr_code = "https://api.qrserver.com/v1/create-qr-code/?data=" + organization.wallet.public_key + "&size=250x250";
 
 	bitcoin.subscribe(organization.wallet.public_key);
@@ -57,8 +59,8 @@ function getOrganization (id) {
 }
 
 createOrganization({
-		name: "Organization 1",
-		description: "Organization description, we're awesome !",
+		name: "Ebola Charity",
+		description: "Help us fight ebola today!",
 		contact_info: 
 		{
 			website: "http://www.google.com/",
