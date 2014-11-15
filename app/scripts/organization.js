@@ -29,7 +29,7 @@ if (window.location.search == "?error"){
 			console.log(data)
 			// Set bckgd img
 			console.log(data.background);
-			$('#fumbotron').css("{'background-image':", "'url(" + data.background + ")'}");
+			$('#jumbotron').css("{'background-image':", "'url(" + data.background + ")'}");
 			
 		}).done(function(){
 			console.log("ajax successful");
