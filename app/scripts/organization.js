@@ -12,7 +12,7 @@ function getQueryParams(qs) {
     return params;
 }
 
-console.log(params);
+console.log(getQueryParams(document.URL));
 $.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/1", function( data ) {
   // var items = [];
   // $.each( data, function( key, val ) {
