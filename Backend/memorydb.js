@@ -15,6 +15,11 @@ function createOrganization (organization) {
 		organization.id = shortId.generate();
 
 	organization.wallet = bitcoin.generateKeys();
+	organization.payment_status = {
+		max: 0,
+		total: 0,
+		count: 0
+	};
 
 	bitcoin.subscribe(organization.wallet.public_key);
 
