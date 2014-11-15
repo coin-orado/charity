@@ -17,7 +17,7 @@ tags = { }
 tags["public_key1"] = "Starbucks";
 tags["public_key2"] = "Cheesecake Factory";
 
-var tags_names = ['Starbucks', 'Office Depot', 'IRS'];
+var tags_names = ['Starbucks', 'Office Depot', 'IRS', 'Strip Club'];
 
 var counter = 0;
 
