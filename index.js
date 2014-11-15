@@ -8,6 +8,10 @@ var LINQ = require('node-linq').LINQ;
 
 var app = express();
 
+function clone(object){
+	return JSON.parse(JSON.stringify(object));
+}
+
 function StartServer() {
 
 	app.set('port', (process.env.PORT || 5000));
@@ -58,7 +62,7 @@ app.post('/notifications', function(request, response) {
 
 app.get("/organization/:id", function (request, response)
 {
-	var object = memorydb.getOrganization(request.param("id"));
+	var object = clone(memorydb.getOrganization(request.param("id")));
 	object.public_key = object.wallet.public_key;
 	delete object.wallet
 
@@ -67,7 +71,12 @@ app.get("/organization/:id", function (request, response)
 
 app.get("/organization", function(request, response) {
 
-	var linq = new LINQ(memorydb.getOrganizations()).Select(function(x){ x.public_key = x.wallet.public_key; delete x.wallet; return x;  }).ToArray();
+	var linq = new LINQ(memorydb.getOrganizations()).Select(function(x) {
+		var model = clone(x);
+	 	model.public_key = model.wallet.public_key;
+	 	delete model.wallet; 
+	 	return model;
+	}).ToArray();
 	response.send(linq);
 })
 
@@ -75,6 +84,7 @@ app.post("/organization", function (request, response) {
 
 	var object = request.body;
 	memorydb.createOrganization(object);
-	delete object.wallet
-	response.send(object);
+	var model = clone(object);
+	delete model.wallet
+	response.send(model);
 });
