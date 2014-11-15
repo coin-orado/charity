@@ -29,7 +29,7 @@ if (window.location.search == "?error"){
 			document.getElementById('qr').innerHTML = "<img src='" + data.qr_code + "' alt='QR Code' style='width:150px;height:150px;'>";
 			document.getElementById('expensesPage').innerHTML = "<a class='btn btn-default' href='https://intense-escarpment-3682.herokuapp.com/expenses.html?id=" + data.id + "'> " + "See Expenses" + "</a>";
 			
-			document.getElementById('facebook_share').innerHTML='<div class="fb-share-button" data-href="https://intense-escarpment-3682.herokuapp.com/?id='+ data.id +'" data-layout="button"></div>';
+			document.getElementById('facebook_share').innerHTML='<div class="fb-share-button" data-href="https://intense-escarpment-3682.herokuapp.com data-layout="button"></div>';
 
 			console.log(data);
 			// Set bckgd img
