@@ -10,7 +10,9 @@ function getQueryParams(search) {
 }
 
 params = getQueryParams(window.location.search);
-$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + params.id, function( data ) {
+$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + params.id, function(err, data) {
+	if (err)
+		throw err
 	var orgContactInfo = "Address: " + data.contact_info.address + "<br>" + "Phone: " + data.contact_info.phone + "<br>" + "Website: " + data.contact_info.website;
 	var stats = "Maximum Gift: " + data.payment_status.max + "<br>" + "Total Contribution: " + data.payment_status.total + "<br>" + "Number of Contributions: " + data.payment_status.count;
 	
