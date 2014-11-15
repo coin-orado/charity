@@ -27,12 +27,12 @@
       <div class="header">
       <div class="row">
 	<div class="col-lg-3 col-lg-offset-2">	
-		<h3 class="text-muted">Coin-orado Charity Service</h3>
+		<h3 class="text-muted">Coin-orado Charity Registration</h3>
         </div>
 	<div class="col-lg-3 col-lg-offset-2">
         	<ul class="nav nav-pills pull-right">
-          		<li class="active"><a href="#">Home</a></li>
-          		<li><a href="/register.html" style="color:#d9534f">Register</a></li>
+          		<li><a href="/index.html" style="color:#d9534f">Home</a></li>
+          		<li class="active"><a href="#">Register</a></li>
           		<li><a href="#" style="color:#d9534f">Contact</a></li>
         	</ul>
         </div>
@@ -40,54 +40,16 @@
       </div>
 
       <div class="jumbotron" style="background-color:#d9534f">
-        <h1 style="color:white">BitCharity</h1>
-        <p class="lead"i style="color:white">A bitcoin donation service.</p>
-        <p><a class="btn btn-lg btn-default" href="#">Donate!</a></p><p><a class="btn btn-lg btn-default" href="/register.html">Register your charity</a></p>
+        <div class = "row">	
+		<div class="col-lg-4">	
+			<h2 style="color:white">Adrian Chen</h1>
+      		</div>
+	</div>
       </div>
 
     </div>
   
-  <div class="container-fluid">
-  	<div class="row">
-		<div class="col-lg-1 col-lg-offset-2">
-			<h1 style="color:#d9534f">Step 1.</h1>
-		</div>
-		<div class="col-lg-1 col-lg-offset-2">
-			<h1 style="color:#d9534f">Step 2.</h1>
-		</div>
-		<div class="col-lg-1 col-lg-offset-2">
-			<h1 style="color:#d9534f">Step 3.</h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-2 col-lg-offset-2">
-			<h4>Find a charity to donate to.</h4><br>
-			<button class="btn btn-lg btn-danger">Find a charity</button>
-		</div>
-		<div class="col-lg-2 col-lg-offset-1">
-			<h4>Go to the charity's page.</h4>
-		</div>
-		<div class="col-lg-2 col-lg-offset-1">
-			<h4>Donate to the charity's wallet.</h4>
-		</div>
-	</div>
-  </div>
   	
-  <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
-          <h4>HTML5 Boilerplate</h4>
-          <p id="descLabel1">HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-
-
-          <h4>Bootstrap</h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-
-
-        </div>
-      </div>
-  </div>
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> Yay charity!</p>
       </div>
@@ -99,13 +61,6 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <script>
-    	$.getJSON("https://intense-escarpment-3682.herokuapp.com/organization/1", function( data ) {
-		console.log(data)
-	});
-    	document.getElementById("descLabel1").innerHTML = "Test";
-    </script>
-
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -115,7 +70,7 @@
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
-
+	<script src="app/scripts/registration.js"></script>
         <!-- build:js(.) scripts/plugins.js -->
         <script src="bower_components/bootstrap/js/affix.js"></script>
         <script src="bower_components/bootstrap/js/alert.js"></script>
