@@ -1,3 +1,4 @@
+Parse.initialize("T9nAcm45lrssyeWDzNWJKJCkSycFuc0viPWUpzyt", "GuiDefuQksRdskDn7yHVRdkVvdbpkBBdexRb2ov2");
 
 $( '#submit' ).click(function() {
 	alert("function called");
@@ -6,12 +7,12 @@ $( '#submit' ).click(function() {
 
 
 function createOrg(){
-	var name = document.getElementById('name');
-	var description = document.getElementById('description');
-	var website = document.getElementById('website');
-	var phone = document.getElementById('phone');
-	var address = document.getElementById('address');
-	var public_key = document.getElementById('public_key');
+	var name = document.getElementById('name').value;
+	var description = document.getElementById('description').value;
+	var website = document.getElementById('website').value;
+	var phone = document.getElementById('phone').value;
+	var address = document.getElementById('address').value;
+	var public_key = document.getElementById('public_key').value;
 
 	var JSONObj = {};
 	var contact_info = {};
@@ -25,5 +26,9 @@ function createOrg(){
 	JSONObj.contact_info = contact_info;
 	JSONObj.public_key = public_key;
 
-	console.log(JSONObj)
+	var TestObject = Parse.Object.extend("TestObject");
+	var testObject = new TestObject();
+	testObject.save(JSONObj).then(function(object) {
+		console.log('succesfully pushed obj to parse');
+	})
 }
