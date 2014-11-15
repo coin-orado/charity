@@ -29,8 +29,9 @@ function createOrg(){
 	console.log(JSON.stringify(JSONObj))
 	$.ajax({
 		type: "POST",
+		contentType: "application/json",
 		url: 'https://intense-escarpment-3682.herokuapp.com/organization',
-		data: JSON.stringify(JSONObj),
+		data: JSONObj,
 		dataType: "json"
 	});
 
