@@ -9,7 +9,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" /> 
+    <link rel="stylesheet" href="custom.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -22,26 +23,61 @@
     <![endif]-->
 
 
-    <div class="container">
+    <div class="container-fluid">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">Charity Application Coin-orado</h3>
+      <div class="row">
+	<div class="col-lg-3 col-lg-offset-2">	
+		<h3 class="text-muted">Coin-orado Charity Application</h3>
+        </div>
+	<div class="col-lg-3 col-lg-offset-2">
+        	<ul class="nav nav-pills pull-right">
+          		<li class="active"><a href="#">Home</a></li>
+          		<li><a href="#" style="color:#d9534f">About</a></li>
+          		<li><a href="#" style="color:#d9534f">Contact</a></li>
+        	</ul>
+        </div>
+      </div>
       </div>
 
-      <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid! <span class="glyphicon glyphicon-ok"></span></a></p>
+      <div class="jumbotron" style="background-color:#d9534f">
+        <h1 style="color:white">BitCharity</h1>
+        <p class="lead"i style="color:white">A bitcoin donation service.</p>
+        <p><a class="btn btn-lg btn-default" href="#">Donate!</a></p><p><a class="btn btn-lg btn-default" href="#">Setup your charity</a></p>
       </div>
 
-      <div class="row marketing">
-        <div class="col-lg-6">
+    </div>
+  
+  <div class="container-fluid">
+  	<div class="row">
+		<div class="col-lg-1 col-lg-offset-2">
+			<h1 style="color:#d9534f">Step 1.</h1>
+		</div>
+		<div class="col-lg-1 col-lg-offset-2">
+			<h1 style="color:#d9534f">Step 2.</h1>
+		</div>
+		<div class="col-lg-1 col-lg-offset-2">
+			<h1 style="color:#d9534f">Step 3.</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-2 col-lg-offset-2">
+			<h4>Find a charity to donate to.</h4><br>
+			<button class="btn btn-lg btn-danger">Find a charity</button>
+		</div>
+		<div class="col-lg-2 col-lg-offset-1">
+			<h4>Go to the charity's page.</h4>
+		</div>
+		<div class="col-lg-2 col-lg-offset-1">
+			<h4>Donate to the charity's wallet.</h4>
+		</div>
+	</div>
+  </div>
+  	
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
           <h4>HTML5 Boilerplate</h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
+          <p id="descLabel1">HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
 
 
 
@@ -51,12 +87,10 @@
 
         </div>
       </div>
-
+  </div>
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p><span class="glyphicon glyphicon-heart"></span> Yay charity!</p>
       </div>
-
-    </div>
 
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -64,6 +98,13 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+
+    <script>
+    	$.getJSON("https://intense-escarpment-3682.herokuapp.com/organization/1", function( data ) {
+		console.log(data)
+	});
+    	document.getElementById("descLabel1").innerHTML = "Test";
+    </script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
