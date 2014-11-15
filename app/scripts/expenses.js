@@ -34,6 +34,7 @@ if (window.location.search == "?error"){
     	 		var expense = "<li>Id: "+ items[cnt].id + " paid public address: " + items[cnt].publicAddr + " tagged as: " + items[cnt].paid_to_name + "</li>";
           		$("#list").append(link);
     		}
+	    }
 		}).done(function(){
 			console.log("ajax successful");
 		}).fail(function() { 
