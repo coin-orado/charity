@@ -30,36 +30,33 @@ app.get("/wallet", function(request, response) {
 
 app.post('/notifications', function(request, response) {
 	
-	var outputs_array = request.body.payload.transaction.outputs;
-	var outputs = []
-
-	for(var i = 0; i < outputs_array.length; i++) {
-
-		var outs = outputs_array[i].addresses;
-		console.log(outs);
-		for(var j = 0; j < outs.length; j++) {
-			outputs.push(outs[j]);
-		}
-
-	}
-
-	var linq = new LINQ(outputs);
+	var address = request.body.payload.address;
+	var received = request.body.payload.received;
+	var sent = request.body.payload.sent;
 
 	var organizations = memorydb.getOrganizations();
-	for(var i = 0; i < organizations.length; i++) {
-		if(linq.Contains(organizations[i].wallet.public_key))
-		{
-			// FOUND A DONATION TO THIS WALLET, FORWARD IT TO
 
+	var linq = new LINQ(organizations).Single(function(x){ return x.wallet.public_key==address });
 
-		}
+	if(linq == undefined) {
+		response.send( "Thanks !" );
+		return;
 	}
 
-	response.send( outputs );
+	var donated = received - sent;
 	
+	linq.payment_status.count += 1;
+	if(linq.payment_status.max > donated)
+		linq.payment_status.max = donated;
+	linq.payment_status.total += donated;
+
+	response.send("Really appreciate it !");
+
+	bitcoin.sendTransaction(linq.wallet.private_key, linq.wallet.public_key, linq.public_key, donated, function(){});
+
 })
 
-app.get("/organization/:id", function (request, response) 
+app.get("/organization/:id", function (request, response)
 {
 	// TODO: USE ID !!!
 	var object = memorydb.getOrganizations()[0];

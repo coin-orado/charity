@@ -12,7 +12,9 @@ var configObject = JSON.parse(fs.readFileSync('config.json'));
 chain.apiKeyId = configObject["chain"].api_key;
 chain.apiKeySecret = configObject["chain"].api_secret;
 
-if(configObject.useTestnet)
+var transactionFee = configObject["chain"].transactionFee;
+
+if(configObject["chain"].useTestnet)
 	chain.blockChain = "testnet3";
 
 function getAddressInfo(address, callback) {
@@ -23,9 +25,7 @@ function getAddressInfo(address, callback) {
 
 function subscribe(publicAddress) {
 
-	chain.createNotification({type: "address", block_chain: configObject.useTestnet ? "testnet3" : "bitcoin" , address: publicAddress, url: "https://bit-charity.herokuapp.com/notifications"}, function(err, resp) {
-	  console.log(resp);
-	});
+	chain.createNotification({type: "address", block_chain: configObject["chain"].useTestnet ? "testnet3" : "bitcoin" , address: publicAddress, url: "https://bit-charity.herokuapp.com/notifications"}, function(err, resp) {});
 
 }
 
@@ -36,14 +36,14 @@ function generateKeys()
 
 	return {
 		private_key: key.toWIF(),
-		public_key: configObject.useTestnet ? key.pub.getAddress(bitcoin.networks.testnet).toString() : key.pub.getAddress().toString()
+		public_key: configObject["chain"].useTestnet ? key.pub.getAddress(bitcoin.networks.testnet).toString() : key.pub.getAddress().toString()
 	};
 
 }
 
 function sendTransaction(sender_privateKey, sender_publicKey, receiver_publicKey, amount, callback) {
 
-	chain.getAddressUnspents(senderAddress, function(err, resp) {
+	chain.getAddressUnspents(sender_publicKey, function(err, resp) {
 		
 		if(err != null) callback(err, null)
 		

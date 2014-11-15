@@ -52,7 +52,7 @@ createOrganization({
 			phone: "+1 (571) 263 - 4240",
 			address: "3685 Moorhead Ave. Bouder, CO 80305"
 		},
-		public_key: "14SRJjCbh6LiUewM8y8HNbtz5ouiLo8EeU",
+		public_key: "mpRm4M8JRH6cukTDVueKEcE5bR2WyqvKNS",
 		payment_status: {
 			max: 5,
 			total: 90,
@@ -60,4 +60,5 @@ createOrganization({
 		}
 
 	});
+
 console.log(getOrganizations())
