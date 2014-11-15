@@ -30,8 +30,7 @@ if (window.location.search == "?error"){
 			// Set bckgd img
 			console.log(data.background);
 			debugger
-			$('.jumbotron').css('background-image','url("' + data.background '");');
-			
+$('.jumbotron').css('background-image','url("' + data.background + '");')			
 		}).done(function(){
 			console.log("ajax successful");
 		}).fail(function() { 
