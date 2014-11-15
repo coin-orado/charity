@@ -106,9 +106,4 @@ body {
   border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#CCCCCC; padding-left:10px; cursor:pointer; }
 #expenses ul li a strong { margin-right:10px; }
 
-#orgs { width:320px; font-family:Georgia, Times, serif; font-size:15px; }
-#orgs ul { list-style: none; }
-#orgs ul li { }
-#orgs ul li a { display:block; text-decoration:none; color:#000000; background-color:#FFFFFF; line-height:100px;
-  border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#CCCCCC; padding-left:10px; cursor:pointer; }
-#orgs ul li a strong { margin-right:10px; }
+#orgs { width:320px; font-family:Georgia, Times, serif; font-size:32px; }
