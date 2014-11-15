@@ -31,7 +31,7 @@ if (window.location.search == "?error"){
 			var items = data.items;
 			$('#expenses').append("<ul id='list'></ul>");
     		for (cnt = 0; cnt < items.length; cnt++) {
-    	 		var expense = "<li>Id: "+ items[cnt].id + " paid public address: " + items[cnt].publicAddr + " tagged as: " + items[cnt].paid_to_name + "</li>";
+    	 		var expense = "<li>Id: "+ items[cnt].id + " paid public address: " + items[cnt].paid_to + " tagged as: " + items[cnt].paid_to_name + "</li>";
           		$("#list").append(expense);
     		}
 		}).done(function(){
