@@ -55,7 +55,7 @@ function createOrganization (organization) {
 		count: 0
 	};
 
-	organization.background = "";
+	organization.background = organization.background ? organization.background : "";
 
 	organization.qr_code = "https://api.qrserver.com/v1/create-qr-code/?data=" + organization.wallet.public_key + "&size=250x250";
 
