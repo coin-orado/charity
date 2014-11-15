@@ -1,3 +1,7 @@
+exports.generateKeys = generateKeys
+exports.getAddressInfo = getAddressInfo
+exports.sendTransaction = sendTransaction
+
 var fs = require('fs');
 var chain = require('chain-node');
 var bitcoin = require('bitcoinjs-lib');
