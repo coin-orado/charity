@@ -32,9 +32,8 @@ if (window.location.search == "?error"){
 			$('#expenses').append("<ul id='list'></ul>");
     		for (cnt = 0; cnt < data.length; cnt++) {
     	 		var expense = "<li>Id: "+ items[cnt].id + " paid public address: " + items[cnt].publicAddr + " tagged as: " + items[cnt].paid_to_name + "</li>";
-          		$("#list").append(link);
+          		$("#list").append(expense);
     		}
-	    }
 		}).done(function(){
 			console.log("ajax successful");
 		}).fail(function() { 
