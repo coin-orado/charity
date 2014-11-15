@@ -21,13 +21,21 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      	var js, fjs = d.getElementsByTagName(s)[0];
+        	if (d.getElementById(id)) return;
+	 	js = d.createElement(s); js.id = id;
+	    	js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+	      	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 
 
     <div class="container-fluid">
       <div class="header">
       <div class="row">
 	<div class="col-lg-3 col-lg-offset-2">	
-		<h3 class="text-muted">Coin-orado Contribit</h3>
+		<h3 class="text-muted">Coin-orado ContriBit</h3>
         </div>
 	<div class="col-lg-3 col-lg-offset-2">
         	<ul class="nav nav-pills pull-right">
@@ -40,7 +48,7 @@
       </div>
 
       <div class="jumbotron" style="background-color:#d9534f">
-        <h1 style="color:white">Contribit</h1>
+        <h1 style="color:white">ContriBit</h1>
         <p class="lead"i style="color:white">A bitcoin donation service.</p>
         <p><a class="btn btn-lg btn-default" href="#popular">Donate!</a></p><p><a class="btn btn-lg btn-default" href="/register.html">Register your charity</a></p>
       </div>
@@ -80,7 +88,20 @@
       <div id="orgs"></div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> Yay charity!</p>
+      <div class="container-fluid">
+        	<div class="row">
+			<div class="col-lg-1 col-md-1 col-sm-2 col-xs-3">	
+        			<p><span class="glyphicon glyphicon-heart"></span> Yay charity!</p>
+      			</div>
+			<div class="col-lg-1 col-md-1 col-sm-2 col-xs-3">
+				<div class="fb-share-button" data-href="https://intense-escarpment-3682.herokuapp.com/" data-layout="button"></div>
+      			</div>
+			<div class="col-lg-1 col-md-1 col-sm-2 col-xs-3">
+      				<script src="https://apis.google.com/js/platform.js" async defer></script>
+				<g:plus action="share"></g:plus>
+			</div>
+		</div>	
+	</div>
       </div>
 
 
