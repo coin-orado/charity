@@ -13,6 +13,7 @@ function createOrg(){
 	var phone = document.getElementById('phone').value;
 	var address = document.getElementById('address').value;
 	var public_key = document.getElementById('public_key').value;
+	var id = document.getElementById('id').value;
 
 	var JSONObj = {};
 	var contact_info = {};
@@ -25,6 +26,7 @@ function createOrg(){
 	JSONObj.description = description;
 	JSONObj.contact_info = contact_info;
 	JSONObj.public_key = public_key;
+	JSONObj.id = id;
 
 	console.log(JSON.stringify(JSONObj))
 	$.ajax({
@@ -35,7 +37,7 @@ function createOrg(){
 		dataType: "json"
 	});
 
-	alert('organization created');
+	//alert('organization created');
 
 	// var TestObject = Parse.Object.extend("TestObject");
 	// var testObject = new TestObject();

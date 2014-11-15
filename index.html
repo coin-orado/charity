@@ -27,13 +27,13 @@
       <div class="header">
       <div class="row">
 	<div class="col-lg-3 col-lg-offset-2">	
-		<h3 class="text-muted">Coin-orado Charity Service</h3>
+		<h3 class="text-muted">Coin-orado BitCharity</h3>
         </div>
 	<div class="col-lg-3 col-lg-offset-2">
         	<ul class="nav nav-pills pull-right">
           		<li class="active"><a href="#">Home</a></li>
           		<li><a href="/register.html" style="color:#d9534f">Register</a></li>
-          		<li><a href="#" style="color:#d9534f">Contact</a></li>
+          		<li><a href="/contact.html" style="color:#d9534f">Contact</a></li>
         	</ul>
         </div>
       </div>
@@ -42,7 +42,7 @@
       <div class="jumbotron" style="background-color:#d9534f">
         <h1 style="color:white">BitCharity</h1>
         <p class="lead"i style="color:white">A bitcoin donation service.</p>
-        <p><a class="btn btn-lg btn-default" href="#">Donate!</a></p><p><a class="btn btn-lg btn-default" href="/register.html">Register your charity</a></p>
+        <p><a class="btn btn-lg btn-default" href="#popular">Donate!</a></p><p><a class="btn btn-lg btn-default" href="/register.html">Register your charity</a></p>
       </div>
 
     </div>
@@ -62,7 +62,7 @@
 	<div class="row">
 		<div class="col-lg-2 col-lg-offset-2">
 			<h4>Find a charity to donate to.</h4><br>
-			<button class="btn btn-lg btn-danger">Find a charity</button>
+			<a class="btn btn-lg btn-danger" href="#popular">Find a charity</a>
 		</div>
 		<div class="col-lg-2 col-lg-offset-1">
 			<h4>Go to the charity's page.</h4>
@@ -72,18 +72,12 @@
 		</div>
 	</div>
   </div>
-  	
+
   <div class="container">
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-          <h4>HTML5 Boilerplate</h4>
-          <p id="descLabel1">HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-
-
-          <h4>Bootstrap</h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-
+          <h4><a name="popular">Popular Organizations</a></h4>
+          <div id="orgs"></div>
 
         </div>
       </div>
@@ -98,13 +92,6 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
-    <script>
-    	$.getJSON("https://intense-escarpment-3682.herokuapp.com/organization/1", function( data ) {
-		console.log(data)
-	});
-    	document.getElementById("descLabel1").innerHTML = "Test";
-    </script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -133,6 +120,7 @@
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="app/scripts/main.js"></script>
+        <script src="app/scripts/listOrganizations.js"></script>
         <!-- endbuild -->
 </body>
 </html>
