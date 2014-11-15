@@ -21,6 +21,7 @@ if (window.location.search == "?error"){
 			var stats = "Maximum Gift: " + data.payment_status.max + " Satoshi<br>" + "Total Contribution: " + data.payment_status.total + " Satoshi<br>" + "Number of Contributions: " + data.payment_status.count;
 		
 			document.getElementById('orgTitle').innerHTML = data.name;
+			document.getElementById('orgHeader').innerHTML = data.name;
 			document.getElementById('orgName').innerHTML = data.name;
 			document.getElementById('orgDesc').innerHTML = data.description;
 			document.getElementById('orgContactInfo').innerHTML = orgContactInfo;
