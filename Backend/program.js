@@ -2,8 +2,7 @@ exports.StartServer = StartServer
 
 var express = require('express');
 var bodyParser = require('body-parser');
-var bitcoin = require('./Backend/bitcoin.js');
-var memorydb = require('./Backend/memorydb.js');
+var bitcoin = require('./bitcoin.js')
 
 var app = express();
 
@@ -19,17 +18,30 @@ function StartServer() {
 
 }
 
-StartServer()
-
 app.get("/wallet", function(request, response){
 	response.send(bitcoin.generateKeys());
 })
 
 app.get("/organization/:id", function (request, response) 
 {
-	// TODO: USE ID !!!
-	var object = memorydb.getOrganizations()[0];
-	delete object.wallet
+	var dummyOrganizationObject = 
+	{
+		name: "Organization 1",
+		description: "Organization description, we're awesome !",
+		contact_info: 
+		{
+			website: "http://www.google.com/",
+			phone: "+1 (571) 263 - 4240",
+			address: "3685 Moorhead Ave. Bouder, CO 80305"
+		},
+		public_key: "blahblahblahfornow :)",
+		payment_status: {
+			max: 5,
+			total: 90,
+			count: 4
+		}
+	}
 
-	response.send(object)
+	response.send(dummyOrganizationObject)
 });
+
