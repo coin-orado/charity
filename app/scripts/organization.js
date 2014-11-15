@@ -25,7 +25,7 @@ if (window.location.search == "?error"){
 			document.getElementById('orgContactInfo').innerHTML = orgContactInfo;
 			document.getElementById('pubKey').innerHTML = data.public_key;
 			document.getElementById('stats').innerHTML = stats;
-			document.getElementById('qr').innerHTML = "<img src='" + data.qr_code + "' alt='QR Code'>";
+			document.getElementById('qr').innerHTML = "<img src='" + data.qr_code + "' alt='QR Code' style='width:150px;height:150px;'>";
 			console.log(data)
 			
 		}).done(function(){
