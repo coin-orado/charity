@@ -87,3 +87,10 @@ body {
     border-bottom: 0;
   }
 }
+
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
+}
