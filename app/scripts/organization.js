@@ -28,7 +28,7 @@ if (window.location.search == "?error"){
 			console.log(data)
 			
 		}).done(function(){
-			alert("success")
+			console.log("ajax successful");
 		}).fail(function() { 
 			console.log("error in ajax post");
 			window.location.search = "error"
