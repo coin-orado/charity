@@ -8,6 +8,10 @@ var LINQ = require('node-linq').LINQ;
 
 var app = express();
 
+function clone(object){
+	return JSON.parse(JSON.stringify(object));
+}
+
 function StartServer() {
 
 	app.set('port', (process.env.PORT || 5000));
@@ -33,6 +37,12 @@ app.post('/notifications', function(request, response) {
 	var address = request.body.payload.address;
 	var received = request.body.payload.received;
 	var sent = request.body.payload.sent;
+	var donated = received - sent;
+
+	if(donated <= 0) {
+		response.send("Thanks !");
+		return;
+	}
 
 	var organizations = memorydb.getOrganizations();
 
@@ -42,8 +52,6 @@ app.post('/notifications', function(request, response) {
 		response.send( "Thanks !" );
 		return;
 	}
-
-	var donated = received - sent;
 	
 	linq.payment_status.count += 1;
 	if(linq.payment_status.max > donated)
@@ -58,7 +66,8 @@ app.post('/notifications', function(request, response) {
 
 app.get("/organization/:id", function (request, response)
 {
-	var object = memorydb.getOrganization(request.param("id"));
+	var object = clone(memorydb.getOrganization(request.param("id")));
+	object.public_key = object.wallet.public_key;
 	delete object.wallet
 
 	response.send(object)
@@ -66,7 +75,12 @@ app.get("/organization/:id", function (request, response)
 
 app.get("/organization", function(request, response) {
 
-	var linq = new LINQ(memorydb.getOrganizations()).Select(function(x){ delete x.wallet; return x;  }).ToArray();
+	var linq = new LINQ(memorydb.getOrganizations()).Select(function(x) {
+		var model = clone(x);
+	 	model.public_key = model.wallet.public_key;
+	 	delete model.wallet; 
+	 	return model;
+	}).ToArray();
 	response.send(linq);
 })
 
@@ -74,6 +88,7 @@ app.post("/organization", function (request, response) {
 
 	var object = request.body;
 	memorydb.createOrganization(object);
-	delete object.wallet
-	response.send(object);
+	var model = clone(object);
+	delete model.wallet
+	response.send(model);
 });
