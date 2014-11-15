@@ -1,19 +1,14 @@
 function getQueryParams(qs) {
-    qs = qs.split("+").join(" ");
-
-    var params = {}, tokens,
-        re = /[?&]?([^=]+)=([^&]*)/g;
-
-    while (tokens = re.exec(qs)) {
-        params[decodeURIComponent(tokens[1])]
-            = decodeURIComponent(tokens[2]);
-    }
-
+	var params = {};
+	var tmp = qs.split('?')[1].split('=');
+	var key = tmp[0];
+	var val = tmp[1];
+	params[key] = val;
     return params;
 }
 
-console.log(getQueryParams(document.URL));
-$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/1", function( data ) {
+params = getQueryParams(window.location.search);
+$.getJSON( "https://intense-escarpment-3682.herokuapp.com/organization/" + params.id, function( data ) {
   // var items = [];
   // $.each( data, function( key, val ) {
   //   items.push( "<li id='" + key + "'>" + val + "</li>" );
