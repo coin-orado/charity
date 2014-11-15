@@ -26,11 +26,11 @@ function createOrg(){
 	JSONObj.contact_info = contact_info;
 	JSONObj.public_key = public_key;
 
-
+	console.log(JSON.stringify(JSONObj))
 	$.ajax({
 		type: "POST",
 		url: 'https://intense-escarpment-3682.herokuapp.com/organization',
-		data: JSONObj,
+		data: JSON.stringify(JSONObj),
 		dataType: "json"
 	});
 
