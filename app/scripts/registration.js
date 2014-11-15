@@ -27,7 +27,7 @@ function createOrg(){
 	JSONObj.contact_info = contact_info;
 	JSONObj.public_key = public_key;
 	JSONObj.id = id;
-	
+
 	console.log(JSON.stringify(JSONObj))
 	$.ajax({
 		type: "POST",
@@ -37,7 +37,7 @@ function createOrg(){
 		dataType: "json"
 	});
 
-	alert('organization created');
+	//alert('organization created');
 
 	// var TestObject = Parse.Object.extend("TestObject");
 	// var testObject = new TestObject();
