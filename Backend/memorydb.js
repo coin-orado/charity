@@ -17,6 +17,10 @@ tags = { }
 tags["public_key1"] = "Starbucks";
 tags["public_key2"] = "Cheesecake Factory";
 
+var tags_names = ['Starbucks', 'Office Depot', 'IRS'];
+
+var counter = 0;
+
 function addExpense(orgId, publicAddr) {
 
 	organizationsExpenses.push({
@@ -35,11 +39,7 @@ function getExpenses() {
 
 function getNameForPublicKey(addr) {
 
-	var name = tags[addr];
-	if (name == undefined)
-		return "";
-
-	return name;
+	return tags_names[counter++ % 3];
 
 }
 
