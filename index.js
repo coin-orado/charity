@@ -37,6 +37,12 @@ app.post('/notifications', function(request, response) {
 	var address = request.body.payload.address;
 	var received = request.body.payload.received;
 	var sent = request.body.payload.sent;
+	var donated = received - sent;
+
+	if(donated <= 0) {
+		response.send("Thanks !");
+		return;
+	}
 
 	var organizations = memorydb.getOrganizations();
 
@@ -46,8 +52,6 @@ app.post('/notifications', function(request, response) {
 		response.send( "Thanks !" );
 		return;
 	}
-
-	var donated = received - sent;
 	
 	linq.payment_status.count += 1;
 	if(linq.payment_status.max > donated)
@@ -56,7 +60,6 @@ app.post('/notifications', function(request, response) {
 
 	response.send("Really appreciate it !");
 
-	console.log("~~~~~~~~~ PAYING FROM " + linq.wallet.private_key + ", " + linq.wallet.public_key + " | to " + linq.wallet.public_key);
 	bitcoin.sendTransaction(linq.wallet.private_key, linq.wallet.public_key, linq.public_key, donated, function(){});
 
 })
