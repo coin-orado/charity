@@ -1,3 +1,5 @@
+exports.StartServer = StartServer
+
 var express = require('express');
 var bodyParser = require('body-parser');
 
@@ -14,9 +16,6 @@ function StartServer() {
 	})
 
 }
-
-StartServer();
-
 
 app.get("/organization/:id", function (request, response) 
 {

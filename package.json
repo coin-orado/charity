@@ -1,5 +1,6 @@
 {
   "name": "charity",
+  "main":"index.js",
   "devDependencies": {
     "express": "*",
     "body-parser": "*"
