@@ -21,15 +21,28 @@ function createOrganization (organization) {
 		count: 0
 	};
 
+	organization.qr_code = "https://api.qrserver.com/v1/create-qr-code/?data=" + organization.wallet.public_key + "&size=250x250";
+
 	bitcoin.subscribe(organization.wallet.public_key);
 
 	organizations.push(organization)
 
 }
 
+function createQRCode(public_key, callback) {
+
+
+	imgur.setClientID(myClientID);
+	imgur.upload(path.join(__dirname, 'someimage.png'),function(err, res){
+	    console.log(res.data.link); //log the imgur url
+	});
+
+}
+
 function getOrganizations() {
 
 	return organizations;
+
 }
 
 function getOrganization (id) {

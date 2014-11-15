@@ -8,7 +8,7 @@ var LINQ = require('node-linq').LINQ;
 
 var app = express();
 
-function clone(object){
+function clone(object) {
 	return JSON.parse(JSON.stringify(object));
 }
 
@@ -54,7 +54,7 @@ app.post('/notifications', function(request, response) {
 	}
 	
 	linq.payment_status.count += 1;
-	if(linq.payment_status.max > donated)
+	if(linq.payment_status.max < donated)
 		linq.payment_status.max = donated;
 	linq.payment_status.total += donated;
 
