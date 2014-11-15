@@ -4,5 +4,6 @@
 		"api_secret": "379acf6f803021ba5b05cc7b192cb4ea",
 		"useTestnet":true,
 		"transactionFee":10000
-	}
+	},
+	"webserver":"https://intense-escarpment-3682.herokuapp.com/"
 }
