@@ -59,6 +59,7 @@ app.post('/notifications', function(request, response) {
 app.get("/organization/:id", function (request, response)
 {
 	var object = memorydb.getOrganization(request.param("id"));
+	object.public_key = object.wallet.public_key;
 	delete object.wallet
 
 	response.send(object)
@@ -66,7 +67,7 @@ app.get("/organization/:id", function (request, response)
 
 app.get("/organization", function(request, response) {
 
-	var linq = new LINQ(memorydb.getOrganizations()).Select(function(x){ delete x.wallet; return x;  }).ToArray();
+	var linq = new LINQ(memorydb.getOrganizations()).Select(function(x){ x.public_key = x.wallet.public_key; delete x.wallet; return x;  }).ToArray();
 	response.send(linq);
 })
 
