@@ -6,7 +6,7 @@ $( '#submit' ).click(function() {
 });
 
 function clearForm(){
-	$( "name" ).empty();
+	$( "#name" ).empty();
 }
 
 function createOrg(){
