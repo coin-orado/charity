@@ -1,9 +1,12 @@
-Parse.initialize("T9nAcm45lrssyeWDzNWJKJCkSycFuc0viPWUpzyt", "GuiDefuQksRdskDn7yHVRdkVvdbpkBBdexRb2ov2");
-
 $( '#submit' ).click(function() {
 	console.log("submitted form")
 	createOrg();
 });
+
+// if form submission successful, display some sort of message
+if (location.search == "?success"){
+	$('#success').html("Registration Successful");
+}
 
 
 function createOrg(){
@@ -35,7 +38,15 @@ function createOrg(){
 		url: 'https://intense-escarpment-3682.herokuapp.com/organization',
 		data: JSON.stringify(JSONObj),
 		dataType: "json"
-	});
+	})
+	.fail(function() { 
+		console.log("error in ajax post");
+	})
+	.success(function() {
+		console.log("successful ajax post");
+		location.search='success';
+		
+	})
 
 	//alert('organization created');
 
