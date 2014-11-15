@@ -26,6 +26,8 @@ function StartServer() {
 
 StartServer()
 
+bitcoin.resetNotifications();
+
 app.get("/wallet", function(request, response) {
 
 	response.send( bitcoin.generateKeys() );

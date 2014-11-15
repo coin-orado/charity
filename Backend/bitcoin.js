@@ -2,6 +2,7 @@ exports.generateKeys = generateKeys
 exports.getAddressInfo = getAddressInfo
 exports.subscribe = subscribe
 exports.sendTransaction = sendTransaction
+exports.resetNotifications = resetNotifications
 exports.subscribeForOrganizationNotifications = subscribeForOrganizationNotifications
 
 var fs = require('fs');
@@ -17,6 +18,25 @@ var transactionFee = configObject["chain"].transactionFee;
 
 if(configObject["chain"].useTestnet)
 	chain.blockChain = "testnet3";
+
+function resetNotifications() {
+
+	chain.listNotifications(function(err, resp) {
+
+		if(resp == undefined)
+			return;
+
+		for ( var i = 0; i < resp.length; i++ ) {
+			
+			chain.deleteNotification(resp[i].id, function(err, resp) {
+			  console.log("DELETED NOTIFICATION ");
+			});
+
+		}
+
+	});
+
+}
 
 function getAddressInfo(address, callback) {
 
