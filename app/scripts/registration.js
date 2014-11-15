@@ -1,12 +1,16 @@
-Parse.initialize("T9nAcm45lrssyeWDzNWJKJCkSycFuc0viPWUpzyt", "GuiDefuQksRdskDn7yHVRdkVvdbpkBBdexRb2ov2");
-
 $( '#submit' ).click(function() {
 	console.log("submitted form")
 	createOrg();
 });
 
 function clearForm(){
-	$( "#name" ).empty();
+	var name = document.getElementById('name').innerHTML = "";
+	var description = document.getElementById('description').innerHTML = "";
+	var website = document.getElementById('website').innerHTML = "";
+	var phone = document.getElementById('phone').innerHTML = "";
+	var address = document.getElementById('address').innerHTML = "";
+	var public_key = document.getElementById('public_key').innerHTML = "";
+	var id = document.getElementById('id').innerHTML = "";
 }
 
 function createOrg(){
