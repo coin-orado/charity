@@ -29,7 +29,7 @@ function createOrg(){
 
 	$.ajax({
 		type: "POST",
-		url: 'https://bit-charity.herokuapp.com/organization',
+		url: 'https://intense-escarpment-3682.herokuapp.com/organization',
 		data: JSONObj,
 		dataType: "application/json"
 	});
