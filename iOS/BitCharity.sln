@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitCharity", "BitCharity\BitCharity.csproj", "{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+		Ad-Hoc|iPhone = Ad-Hoc|iPhone
+		AppStore|iPhone = AppStore|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.Debug|iPhone.Build.0 = Debug|iPhone
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.Release|iPhone.ActiveCfg = Release|iPhone
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.Release|iPhone.Build.0 = Release|iPhone
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{EC8A261E-0BBC-4E88-A9C3-9D93F3482AAD}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = BitCharity\BitCharity.csproj
+	EndGlobalSection
+EndGlobal
